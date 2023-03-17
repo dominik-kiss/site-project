@@ -114,8 +114,21 @@
     background-position: center;
 }
 
-#first-pic {
+#pic1 {
     z-index: var(--middle);
+    background-image: url("./media/restaurant1.jpg");
+}
+
+#pic2 {
+    background-image: url("./media/restaurant2.jpg");
+}
+
+#pic3 {
+    background-image: url("./media/restaurant3.jpg");
+}
+
+#pic4 {
+    background-image: url("./media/restaurant4.jpg");
 }
 
 

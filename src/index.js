@@ -1,3 +1,16 @@
+// Create the default "content" div
+
+import './style.css';
+import createSite from "./pageContent";
+
+let firstDiv = document.createElement("div");
+firstDiv.setAttribute("id", "content");
+firstDiv.classList.add("centered-flex");
+document.body.appendChild(firstDiv);
+
+
+createSite();
+
 // Select all pictures in the carousel
 const slides = document.querySelectorAll(".slide");
 
@@ -16,4 +29,4 @@ const moveCarousel = (images, timer, current = 0) => {
     setTimeout(moveCarousel, timer, images, timer, current);
 };
 
-moveCarousel(slides, 7000);
+moveCarousel(slides, 200000);
