@@ -46,7 +46,6 @@ export default function createSite() {
     slide.setAttribute("id", `pic${i+1}`);
     slider.appendChild(slide);
   }
-  // Add the "first-pic" id to the top picture, which sets its "z-index" to be on top, and cover the initial transition of the slides
 
   /******** Logo container ***********/
 
