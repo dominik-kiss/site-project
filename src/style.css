@@ -1,0 +1,189 @@
+/* Variables */
+
+:root {
+    --ff-main: "Open Sans";
+
+    --light1: #fcfefe;
+    --light2: #6f6c69;
+    --reservation-button-clr: #1293db;
+
+    --font-small: 18px;
+    --font-medium: 24px;
+    --font-large: 40px;
+    --font-xtra-large: 60px;
+
+    --front: 2;
+    --middle: 1;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* General */
+
+#content {
+    overflow: hidden;
+    flex-direction: column;
+}
+
+.centered-flex {
+    display: flex;
+    align-items: center;
+}
+
+/* Header and top carousel */
+
+#header {
+    flex-direction: row;
+    position: absolute;
+    padding: 30px;
+    font-family: var(--ff-main);
+    font-size: var(--font-small);
+    color: var(--light1);
+    z-index: var(--front);
+}
+
+
+#header-tabs {
+    flex-direction: row;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    gap: 20px;
+}
+
+#logo-container {
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    font-family: var(--ff-main);
+    color: var(--light1);
+    z-index: var(--front);
+    background-color: transparent;
+    top: 250px;
+    gap: 50px;
+}
+
+#logo {
+    height: 160px;
+}
+
+#logo-text {
+    font-size: var(--font-large);
+}
+
+#reservation-button {
+    font-size: var(--font-medium);
+    background-color: var(--reservation-button-clr);
+    padding: 10px;
+    font-weight: 500;
+}
+
+#carousel-dots {
+    flex-direction: row;
+    position: absolute;
+    align-items: center;
+    font-family: var(--ff-main);
+    color: black;
+    z-index: var(--front);
+    top: 850px;
+    gap: 10px;
+    font-size: var(--font-xtra-large);
+}
+
+#slider {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    overflow: hidden;
+    max-height: 940px;
+    width: 100%;
+    height: 940px;
+}
+  
+.slide {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: all 1s;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#first-pic {
+    z-index: var(--middle);
+}
+
+
+/* Middle content */
+
+#middle-content {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--light1);
+    width: 50%;
+    height: 850px;
+    align-items: center;
+    color: var(--light2);
+    font-family: var(--ff-main);
+    font-size: var(--font-small);
+
+}
+
+#middle-top {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+
+#middle-bottom {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+#chef-img {
+    width: 600px;
+}
+
+#chef-text {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Footer */
+
+#footer {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    background-color: var(--light2);
+    color: var(--light1);
+    padding: 10px;
+    width: 100%;
+    justify-content: center;
+    font-size: var(--font-small);
+}
+
+.fa-github {
+    color: black;
+    transition: transform 0.3s ease-in-out;
+}
+
+.fa-github:hover {
+    transform: rotate(360deg) scale(1.2);
+}
+
+.fa-rotate-left {
+    color: black;
+    transition: transform 0.3s ease-in-out;
+}
+
+.fa-rotate-left:hover {
+    transform: rotate(-360deg) scale(1.2);
+}
