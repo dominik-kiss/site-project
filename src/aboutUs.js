@@ -1,7 +1,7 @@
 import Logo from "./media/logo.png";
 import Chef from "./media/chef.PNG";
 
-export default function homePage() {
+export default function aboutUsPage() {
 
   const navigationOptions = ["Home", "About Us", "Menu", "Contact Us"];
   const middleTextContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a sem at ipsum consequat hendrerit quis at tortor. Duis nec dignissim ex.";
@@ -31,64 +31,6 @@ export default function homePage() {
     li.classList.add("navi");
     li.setAttribute("id", navigationOptions[i].toLowerCase().replace(" ", "-"));
     headerTabs.appendChild(li);
-  }
-
-  /******** Carousel ***********/
-
-  // Create the main "slider" element
-  let slider = document.createElement("div");
-  slider.setAttribute("id", "slider");
-  content.appendChild(slider);
-
-
-  // Create the four slides of the carousel with the bg images added
-  for (let i = 0; i < 4; i++) {
-    let slide = document.createElement("div");
-    slide.classList.add("slide");
-    slide.setAttribute("id", `pic${i+1}`);
-    slider.appendChild(slide);
-  }
-
-  /******** Logo container ***********/
-
-  // Create the logo container element
-  let logoContainer = document.createElement("div");
-  logoContainer.setAttribute("id", "logo-container");
-  logoContainer.classList.add("centered-flex");
-  content.appendChild(logoContainer);
-
-  // Create the logo element for the logo image
-  let logo = document.createElement("img");
-  logo.setAttribute("id", "logo");
-  logo.src = Logo;
-  logoContainer.appendChild(logo);
-
-  // Create the logotext element for the "motto"
-  let logoText = document.createElement("div");
-  logoText.setAttribute("id", "logo-text");
-  logoText.innerHTML = "Above the city...";
-  logoContainer.appendChild(logoText);
-
-  // Create the reservation button element
-  let reservationButton = document.createElement("div");
-  reservationButton.setAttribute("id", "reservation-button");
-  reservationButton.innerHTML = "Reservation";
-  logoContainer.appendChild(reservationButton);
-
-
-  /******** Carousel dots ***********/
-
-  // Add three dots to the bottom of the carousel, to display at what stage the carousel is
-
-  let carouselDots = document.createElement("div");
-  carouselDots.setAttribute("id", "carousel-dots");
-  carouselDots.classList.add("centered-flex");
-  content.appendChild(carouselDots);
-
-  for (let i = 0; i < 3; i++) {
-    let dot = document.createElement("p");
-    dot.innerHTML = ".";
-    carouselDots.appendChild(dot);
   }
 
   /******** Midle content ***********/
