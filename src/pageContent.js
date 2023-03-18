@@ -16,6 +16,7 @@ export default function homePage() {
   let header = document.createElement("div");
   header.setAttribute("id", "header");
   header.classList.add("centered-flex");
+  header.classList.add("light-header-tabs");
   content.appendChild(header);
 
   // Create the "ul" element for the Site Navigation Menu
@@ -72,24 +73,10 @@ export default function homePage() {
   // Create the reservation button element
   let reservationButton = document.createElement("div");
   reservationButton.setAttribute("id", "reservation-button");
+  reservationButton.classList.add("navi");
   reservationButton.innerHTML = "Reservation";
   logoContainer.appendChild(reservationButton);
 
-
-  /******** Carousel dots ***********/
-
-  // Add three dots to the bottom of the carousel, to display at what stage the carousel is
-
-  let carouselDots = document.createElement("div");
-  carouselDots.setAttribute("id", "carousel-dots");
-  carouselDots.classList.add("centered-flex");
-  content.appendChild(carouselDots);
-
-  for (let i = 0; i < 3; i++) {
-    let dot = document.createElement("p");
-    dot.innerHTML = ".";
-    carouselDots.appendChild(dot);
-  }
 
   /******** Midle content ***********/
 
@@ -134,7 +121,7 @@ export default function homePage() {
 
   /******** Footer ***********/
 
-  let footer = document.createElement("div");
+/*   let footer = document.createElement("div");
   footer.setAttribute("id", "footer");
   content.appendChild(footer);
 
@@ -151,6 +138,6 @@ export default function homePage() {
   let gitHubLogo = document.createElement("i");
   gitHubLogo.classList.add("fab");
   gitHubLogo.classList.add("fa-github");
-  gitHubLink.appendChild(gitHubLogo);
+  gitHubLink.appendChild(gitHubLogo); */
 
 }
