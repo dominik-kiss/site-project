@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
 module.exports = {
-    mode: "development",
+    mode: "production",
     entry: {
         index: "./src/index.js",
     },
@@ -41,10 +41,11 @@ module.exports = {
     plugins: [
        // new BundleAnalyzerPlugin(),
        new HtmlWebpackPlugin({
-        title: 'Development',
+        title: 'King Hill Restaurant',
       }),
     ],
     optimization: {
       runtimeChunk: 'single',
     },
+    performance: { hints: false }
 };
