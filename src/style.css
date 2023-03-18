@@ -34,8 +34,6 @@
 
 /* General */
 
-
-
 #content {
     overflow: scroll;
     overflow-x: hidden;
@@ -52,6 +50,15 @@
 .centered-flex {
     display: flex;
     align-items: center;
+}
+
+.title {
+    text-transform: uppercase;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: var(--font-medium);
+    color: var(--dark1);
+    font-weight: var(--medium-weight);
 }
 
 /* Header and top carousel */
