@@ -10,30 +10,6 @@ export default function homePage() {
   // Cache the main "content" element, which will contain everything on the page
   const content = document.querySelector("#content");
 
-  /******** HEADER ***********/
-
-  // Create the main "header" element
-  let header = document.createElement("div");
-  header.setAttribute("id", "header");
-  header.classList.add("centered-flex");
-  header.classList.add("light-header-tabs");
-  content.appendChild(header);
-
-  // Create the "ul" element for the Site Navigation Menu
-  let headerTabs = document.createElement("ul");
-  headerTabs.setAttribute("id", "header-tabs");
-  headerTabs.classList.add("centered-flex");
-  header.appendChild(headerTabs);
-
-  // Create list elements of the Site Navigation Menu
-  for (let i in navigationOptions) {
-    let li = document.createElement("li");
-    li.innerHTML = navigationOptions[i];
-    li.classList.add("navi");
-    li.setAttribute("id", navigationOptions[i].toLowerCase().replace(" ", "-"));
-    headerTabs.appendChild(li);
-  }
-
   /******** Carousel ***********/
 
   // Create the main "slider" element
@@ -50,13 +26,37 @@ export default function homePage() {
     slider.appendChild(slide);
   }
 
+  /******** HEADER ***********/
+
+  // Create the main "header" element
+  let header = document.createElement("div");
+  header.setAttribute("id", "header");
+  header.classList.add("centered-flex");
+  header.classList.add("light-header-tabs");
+  slider.appendChild(header);
+
+  // Create the "ul" element for the Site Navigation Menu
+  let headerTabs = document.createElement("ul");
+  headerTabs.setAttribute("id", "header-tabs");
+  headerTabs.classList.add("centered-flex");
+  header.appendChild(headerTabs);
+
+  // Create list elements of the Site Navigation Menu
+  for (let i in navigationOptions) {
+    let li = document.createElement("li");
+    li.innerHTML = navigationOptions[i];
+    li.classList.add("navi");
+    li.setAttribute("id", navigationOptions[i].toLowerCase().replace(" ", "-"));
+    headerTabs.appendChild(li);
+  }
+
   /******** Logo container ***********/
 
   // Create the logo container element
   let logoContainer = document.createElement("div");
   logoContainer.setAttribute("id", "logo-container");
   logoContainer.classList.add("centered-flex");
-  content.appendChild(logoContainer);
+  slider.appendChild(logoContainer);
 
   // Create the logo element for the logo image
   let logo = document.createElement("img");
