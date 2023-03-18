@@ -52,7 +52,7 @@ export default function homePage() {
   }
 
 
-  /******** HEADER ***********/
+  /******** Header ***********/
 
   // Create the main "header" element
 
@@ -71,7 +71,7 @@ export default function homePage() {
     headerTabs.appendChild(li);
   }
 
-  /******** Logo container ***********/
+  /******** Logo  ***********/
 
   // Create the logo container element
 
@@ -93,7 +93,7 @@ export default function homePage() {
   let reservationButton = createNode("div", logoContainer, "reservation-button", ["navi"]);
   reservationButton.innerHTML = "Reservation";
 
-  /******** Midle content ***********/
+  /******** Middle content ***********/
 
   // Create main container for the middle content, and the two containers within
 
@@ -122,7 +122,7 @@ export default function homePage() {
     chefText.appendChild(text);
   }
 
-  /******** Menu content ***********/
+  /******** Menu ***********/
   
   // Create the container for the whole "Menu" section
 
@@ -176,7 +176,7 @@ export default function homePage() {
   let brandLogoContainer = createNode("div", contactContainer, "brand-logo-container");
 
   // Create nodes for the logos with the imported addLogo function
-  
+
   addLogo(brandLogoContainer, "fb-logo", "brands", "facebook");
   addLogo(brandLogoContainer, "twitter-logo", "brands", "twitter");
   addLogo(brandLogoContainer, "insta-logo", "brands", "instagram");
@@ -192,8 +192,3 @@ export default function homePage() {
   addLogo(footerLink, "github-logo", "brands", "github");
 
 }
-
-/* <i class="fa-brands fa-facebook"></i>
-<i class="fa-brands fa-twitter"></i>
-<i class="fa-brands fa-instagram"></i>
-<i class="fa-brands fa-github"></i> */
