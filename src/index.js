@@ -20,6 +20,7 @@ function siteControl(tab) {
     case "menu":
       break;
     case "contact-us":
+    case "reservation-button":
       break;
     default:
       homePage();
