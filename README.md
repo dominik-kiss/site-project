@@ -17,14 +17,18 @@ The main aim of the project was to build a fictional restaurant's website using 
 In order to setup this project, you will need to:
 
 1. Clone this project:
+
 ```git clone https://github.com/dominik-kiss/site-project.git```
 
 2. Install the required dependencies using:
+
 ```npm install```
 
 3. You can start a live demo of the site using:
+
 ```npm start```
 
 4. You can build the distribution files using:
+
 ```npm run build```
 
