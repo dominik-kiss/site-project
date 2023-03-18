@@ -12,7 +12,6 @@ import restaurant1 from "./media/restaurant1.jpg";
 import restaurant2 from "./media/restaurant2.jpg";
 import restaurant3 from "./media/restaurant3.jpg";
 import restaurant4 from "./media/restaurant4.jpg";
-import thumbnail2 from "./media/thumbnail2.jpg";
 
 import addLogo from "./addLogo";
 
@@ -37,10 +36,8 @@ export default function homePage() {
   /******** Carousel ***********/
 
   // Create the main "slider" element
-  let slider = document.createElement("div");
-  slider.setAttribute("id", "slider");
-  content.appendChild(slider);
 
+  let slider = createNode("div", content, "slider")
 
   // Create the four slides of the carousel with the bg images added
   for (let i = 0; i < 4; i++) {
@@ -51,26 +48,19 @@ export default function homePage() {
     slide.style.backgroundRepeat = "no-repeat";
     slide.style.backgroundSize = "cover";
     slide.style.backgroundPosition = "center";
-    // document.body.style.background = "url('[INSERT HTTPS IMAGE URL HERE]')";
     slider.appendChild(slide);
   }
+
 
   /******** HEADER ***********/
 
   // Create the main "header" element
-/*   let header = document.createElement("div");
-  header.setAttribute("id", "header");
-  header.classList.add("centered-flex");
-  header.classList.add("light-header-tabs");
-  slider.appendChild(header); */
 
   let header = createNode("div", slider, "header", ["centered-flex", "light-header-tabs"])
 
   // Create the "ul" element for the Site Navigation Menu
-  let headerTabs = document.createElement("ul");
-  headerTabs.setAttribute("id", "header-tabs");
-  headerTabs.classList.add("centered-flex");
-  header.appendChild(headerTabs);
+
+  let headerTabs = createNode("ul", header, "header-tabs", ["centered-flex"]);
 
   // Create list elements of the Site Navigation Menu
   for (let i in navigationOptions) {
@@ -84,63 +74,46 @@ export default function homePage() {
   /******** Logo container ***********/
 
   // Create the logo container element
-  let logoContainer = document.createElement("div");
-  logoContainer.setAttribute("id", "logo-container");
-  logoContainer.classList.add("centered-flex");
-  slider.appendChild(logoContainer);
+
+  let logoContainer = createNode("div", slider, "logo-container", ["centered-flex"]);
 
   // Create the logo element for the logo image
-  let logo = document.createElement("img");
-  logo.setAttribute("id", "logo");
+
+  let logo = createNode("img", logoContainer, "logo");
   logo.src = Logo;
-  logoContainer.appendChild(logo);
 
   // Create the logotext element for the "motto"
-  let logoText = document.createElement("div");
-  logoText.setAttribute("id", "logo-text");
+
+  let logoText = createNode("div", logoContainer, "logo-text");
   logoText.innerHTML = "Above the city...";
-  logoContainer.appendChild(logoText);
+
 
   // Create the reservation button element
-  let reservationButton = document.createElement("div");
-  reservationButton.setAttribute("id", "reservation-button");
-  reservationButton.classList.add("navi");
-  reservationButton.innerHTML = "Reservation";
-  logoContainer.appendChild(reservationButton);
 
+  let reservationButton = createNode("div", logoContainer, "reservation-button", ["navi"]);
+  reservationButton.innerHTML = "Reservation";
 
   /******** Midle content ***********/
 
   // Create main container for the middle content, and the two containers within
 
-  let middleContent = document.createElement("div");
-  middleContent.setAttribute("id", "middle-content");
-  middleContent.classList.add("column-container");
-  content.appendChild(middleContent);
+  let middleContent = createNode("div", content, "middle-content", ["column-container"]);
 
-  let middleTop = document.createElement("div");
-  middleTop.setAttribute("id", "middle-top");
+  let middleTop = createNode("div", middleContent, "middle-top");
   middleTop.innerHTML = middleTextContent;
   middleTop.style.textAlign = "center";
-  middleContent.appendChild(middleTop);
 
-  let middleBottom = document.createElement("div");
-  middleBottom.setAttribute("id", "middle-bottom");
-  middleContent.appendChild(middleBottom);
 
+  let middleBottom = createNode("div", middleContent, "middle-bottom");
 
   // Add the "chef" image to the middle content
 
-  let chefImg = document.createElement("img");
-  chefImg.setAttribute("id", "chef-img");
+  let chefImg = createNode("img", middleBottom, "chef-img");
   chefImg.src = Chef;
-  middleBottom.appendChild(chefImg);
 
   // Add the element containing the middle content "chef text" elements
 
-  let chefText = document.createElement("div");
-  chefText.setAttribute("id", "chef-text");
-  middleBottom.appendChild(chefText);
+  let chefText = createNode("div", middleBottom, "chef-text");
 
   for (let i in chefTextContent) {
     let text = document.createElement("div");
@@ -202,6 +175,8 @@ export default function homePage() {
 
   let brandLogoContainer = createNode("div", contactContainer, "brand-logo-container");
 
+  // Create nodes for the logos with the imported addLogo function
+  
   addLogo(brandLogoContainer, "fb-logo", "brands", "facebook");
   addLogo(brandLogoContainer, "twitter-logo", "brands", "twitter");
   addLogo(brandLogoContainer, "insta-logo", "brands", "instagram");
