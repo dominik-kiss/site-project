@@ -120,7 +120,6 @@
 #reservation-button {
     font-size: var(--font-medium);
     background-color: var(--light-blue);
-    border: 1px solid var(--border-color);
     padding: 10px;
     font-weight: 500;
 }
@@ -218,6 +217,9 @@
     gap: 20px;
 }
 
+/* Menu buttons and hover effect */
+
+
 .btn {		
 	position: relative;	
 	padding: 1rem 0;
@@ -254,8 +256,6 @@
 	transition-delay: .35s;
 }
 
-/* From Top */
-
 .from-top:before, 
 .from-top:after {
 	left: 0;
@@ -279,6 +279,7 @@
 .from-top:hover:after {
 	height: 100%;
 }
+
 
 /* Gallery content */
 
