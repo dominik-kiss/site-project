@@ -1,12 +1,36 @@
+import createNode from "./nodeGenerator";
+
 import Logo from "./media/logo.png";
 import Chef from "./media/chef.PNG";
+import gal1 from "./media/gal1.jpg";
+import gal2 from "./media/gal2.jpg";
+import gal3 from "./media/gal3.jpg";
+import gal4 from "./media/gal4.jpg";
+import gal5 from "./media/gal5.jpg";
+import gal6 from "./media/gal6.jpg";
+import restaurant1 from "./media/restaurant1.jpg";
+import restaurant2 from "./media/restaurant2.jpg";
+import restaurant3 from "./media/restaurant3.jpg";
+import restaurant4 from "./media/restaurant4.jpg";
+import thumbnail2 from "./media/thumbnail2.jpg";
+
+import addLogo from "./addLogo";
+
 
 export default function homePage() {
 
-  const navigationOptions = ["Home", "About Us", "Menu", "Contact Us"];
+  const navigationOptions = ["Home", "About Us", "Menu", "Gallery", "Contact Us"];
   const middleTextContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a sem at ipsum consequat hendrerit quis at tortor. Duis nec dignissim ex.";
-  const chefTextContent = ["OUR CHEF", "Randall Rishi", "Phasellus rutrum odio vel mattis semper. Etiam dignissim ante arcu, vel fermentum dolor vulputate vel. Proin facilisis tempus accumsan. Cras sed volutpat arcu. Maecenas ut sollicitudin mauris. Morbi elementum nibh sit amet nibh vestibulum, congue porta massa laoreet. Sed accumsan egestas magna, nec euismod est tincidunt ullamcorper. Cras porta ipsum dapibus, cursus metus nec, venenatis nunc. Proin molestie, lectus a auctor varius, magna nulla pellentesque odio, ac eleifend sapien magna et metus. Aliquam sed augue libero. Fusce eget pulvinar massa, eu fermentum sem. Nam pellentesque, nisi et scelerisque pretium, nisl metus elementum nibh, eu accumsan metus erat eget ante. Donec in vestibulum nisi. Duis vitae felis non mauris scelerisque auctor quis eget dolor. In a dignissim lacus, eu auctor ex."];
+  const chefTextContent = ["OUR CHEF", "Randall Rishi", "Proin facilisis tempus accumsan. Cras sed volutpat arcu. Maecenas ut sollicitudin mauris. Morbi elementum nibh sit amet nibh vestibulum, congue porta massa laoreet. <br> Sed accumsan egestas magna, nec euismod est tincidunt ullamcorper. Cras porta ipsum dapibus, cursus metus nec, venenatis nunc. Proin molestie, lectus a auctor varius, magna nulla pellentesque odio, ac eleifend sapien magna et metus. <br><br>Aliquam sed augue libero. Fusce eget pulvinar massa, eu fermentum sem. Nam pellentesque, nisi et scelerisque pretium, nisl metus elementum nibh, eu accumsan metus erat eget ante. Donec in vestibulum nisi. Duis vitae felis non mauris scelerisque auctor quis eget dolor. In a dignissim lacus, eu auctor ex."];
+  const menuTextContent = "Donec scelerisque, dolor eget iaculis commodo, ante magna pretium massa, non egestas nulla magna ac lectus. Ut blandit neque vitae tortor rhoncus ultricies.";
+  const menuButtonContent = ["Menu", "Chef's offer", "Drinks", "Wines"];
+  const galleryImages = [gal1, gal2, gal3, gal4, gal5, gal6];
+  const restaurantImages = [restaurant1, restaurant2, restaurant3, restaurant4];
 
+  const address = "07365 Boitumelo Glen Street 766";
+  const phoneNumber = "056-985-4358";
+  const emailAddress = "restaurant@kinghill.com";
+  
   // Cache the main "content" element, which will contain everything on the page
   const content = document.querySelector("#content");
 
@@ -23,17 +47,24 @@ export default function homePage() {
     let slide = document.createElement("div");
     slide.classList.add("slide");
     slide.setAttribute("id", `pic${i+1}`);
+    slide.style.background = `url(${restaurantImages[i]})`
+    slide.style.backgroundRepeat = "no-repeat";
+    slide.style.backgroundSize = "cover";
+    slide.style.backgroundPosition = "center";
+    // document.body.style.background = "url('[INSERT HTTPS IMAGE URL HERE]')";
     slider.appendChild(slide);
   }
 
   /******** HEADER ***********/
 
   // Create the main "header" element
-  let header = document.createElement("div");
+/*   let header = document.createElement("div");
   header.setAttribute("id", "header");
   header.classList.add("centered-flex");
   header.classList.add("light-header-tabs");
-  slider.appendChild(header);
+  slider.appendChild(header); */
+
+  let header = createNode("div", slider, "header", ["centered-flex", "light-header-tabs"])
 
   // Create the "ul" element for the Site Navigation Menu
   let headerTabs = document.createElement("ul");
@@ -84,6 +115,7 @@ export default function homePage() {
 
   let middleContent = document.createElement("div");
   middleContent.setAttribute("id", "middle-content");
+  middleContent.classList.add("column-container");
   content.appendChild(middleContent);
 
   let middleTop = document.createElement("div");
@@ -117,27 +149,76 @@ export default function homePage() {
     chefText.appendChild(text);
   }
 
-  chefText.firstChild.style.fontWeight = "800"
+  /******** Menu content ***********/
+  
+  // Create the container for the whole "Menu" section
+
+  let menuContainer = createNode("div", content, "menu-container", ["column-container"]);
+
+  // Menu title
+  let menuTitle = createNode("div", menuContainer, "menu-title", ["title"]);
+  menuTitle.innerHTML = "MENU"
+
+  // Creat the container for the "Menu" section's buttons
+  let menuButtons = createNode("div", menuContainer, "menu-buttons-container");
+
+  for (let i in menuButtonContent) {
+    let btn = createNode("div", menuButtons, `menu-btn${parseInt(i)+1}`,["btn", "from-top"]);
+    btn.innerHTML = menuButtonContent[i];
+  }
+
+  // Text in the "Menu" section
+  let menuText = createNode("div", menuContainer, "menu-text");
+  menuText.innerHTML = menuTextContent;
+
+  /******** Gallery ***********/
+
+  let galleryContainer = createNode("div", content, "gallery-container", ["column-container"]);
+
+  let galleryTitle = createNode("div", galleryContainer, "gallery-title", ["title"]);
+  galleryTitle.innerHTML = "Gallery";
+
+  let galleryImgContainer = createNode("div", galleryContainer, "gallery-img-container");
+  for (let i in galleryImages) {
+    let img = createNode("img", galleryImgContainer, `gal-img${parseInt(i)+1}`, ["gal"]);
+    img.src = galleryImages[i];
+  }
+
+  /******** Contact Us ***********/
+
+  let contactContainer = createNode("div", content, "contact-container", ["column-container"]);
+
+  let contactTitle = createNode("div", contactContainer, "contact-title", ["title"]);
+  contactTitle.innerHTML = "Contact Us";
+
+  let contactAddress = createNode("div", contactContainer, "contact-address");
+  contactAddress.innerHTML = address;
+
+  let contactPhone = createNode("div", contactContainer, "contact-phone");
+  contactPhone.innerHTML = phoneNumber;
+
+  let contactEmail = createNode("div", contactContainer, "contact-email");
+  contactEmail.innerHTML = emailAddress;
+
+  let brandLogoContainer = createNode("div", contactContainer, "brand-logo-container");
+
+  addLogo(brandLogoContainer, "fb-logo", "brands", "facebook");
+  addLogo(brandLogoContainer, "twitter-logo", "brands", "twitter");
+  addLogo(brandLogoContainer, "insta-logo", "brands", "instagram");
 
   /******** Footer ***********/
+  
+  let footer = createNode("div", content, "footer", ["column-container"]);
 
-/*   let footer = document.createElement("div");
-  footer.setAttribute("id", "footer");
-  content.appendChild(footer);
-
-
-  let copyrightText = document.createElement("div");
-  let currentYear = new Date().getFullYear();
-  copyrightText.innerHTML = `Copyright © ${currentYear} dominik-kiss`;
-  footer.appendChild(copyrightText);
-
-  let gitHubLink = document.createElement("a");
-  gitHubLink.href = "https://github.com/dominik-kiss";
-  footer.appendChild(gitHubLink);
-
-  let gitHubLogo = document.createElement("i");
-  gitHubLogo.classList.add("fab");
-  gitHubLogo.classList.add("fa-github");
-  gitHubLink.appendChild(gitHubLogo); */
+  let footerText = createNode("div", footer, "footer-text");
+  footerText.innerHTML = `Copyright © ${new Date().getFullYear()} dominik-kiss`
+  let footerLink = createNode("a", footer, "footer-link");
+  footerLink.href = "https://github.com/dominik-kiss";
+  addLogo(footerLink, "github-logo", "brands", "github");
 
 }
+
+/* <i class="fa-brands fa-facebook"></i>
+<i class="fa-brands fa-twitter"></i>
+<i class="fa-brands fa-instagram"></i>
+<i class="fa-brands fa-github"></i> */
