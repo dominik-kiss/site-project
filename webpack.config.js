@@ -6,7 +6,6 @@ module.exports = {
     mode: "development",
     entry: {
         index: "./src/index.js",
-/*         pageContent: "./src/pageContent.js", */
     },
     devtool: "inline-source-map",
     output: {
@@ -16,13 +15,23 @@ module.exports = {
     },
     module: {
         rules: [
-          {
-            test: /\.css$/i,
-            use: ['style-loader', 'css-loader'],
+          { 
+            test: /\.(jpe?g|png|jpg|gif|svg)$/i,
+            use: [
+              {
+                loader: 'file-loader',
+                options: {
+                  name: '[name].[ext]',
+                  context: path.resolve(__dirname, "src/"),
+                  outputPath: '/images/',
+                  useRelativePaths: true
+                }
+            }
+            ] 
           },
           {
-            test: /\.(png|svg|jpg|jpeg|gif)$/i,
-            type: 'asset/resource',
+            test: /\.css$/i,
+            use: ["style-loader", "css-loader"],
           },
         ],
     },
