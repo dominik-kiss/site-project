@@ -4,8 +4,8 @@ import Chef from "./media/chef.PNG";
 export default function aboutUsPage() {
 
   const navigationOptions = ["Home", "About Us", "Menu", "Contact Us"];
-  const middleTextContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a sem at ipsum consequat hendrerit quis at tortor. Duis nec dignissim ex.";
-  const chefTextContent = ["OUR CHEF", "Randall Rishi", "Phasellus rutrum odio vel mattis semper. Etiam dignissim ante arcu, vel fermentum dolor vulputate vel. Proin facilisis tempus accumsan. Cras sed volutpat arcu. Maecenas ut sollicitudin mauris. Morbi elementum nibh sit amet nibh vestibulum, congue porta massa laoreet. Sed accumsan egestas magna, nec euismod est tincidunt ullamcorper. Cras porta ipsum dapibus, cursus metus nec, venenatis nunc. Proin molestie, lectus a auctor varius, magna nulla pellentesque odio, ac eleifend sapien magna et metus. Aliquam sed augue libero. Fusce eget pulvinar massa, eu fermentum sem. Nam pellentesque, nisi et scelerisque pretium, nisl metus elementum nibh, eu accumsan metus erat eget ante. Donec in vestibulum nisi. Duis vitae felis non mauris scelerisque auctor quis eget dolor. In a dignissim lacus, eu auctor ex."];
+  const textBoxTitles = ["Our history", "Our mission"];
+  const textBoxContent = ["Sed commodo consequat sem, nec scelerisque arcu malesuada vel. Maecenas scelerisque urna libero, a convallis nibh vehicula sit amet. Nam at viverra dolor. Proin feugiat molestie viverra. Praesent neque libero, porttitor et neque vel, placerat blandit felis.", "Sed lobortis lacus sit amet velit bibendum feugiat. Fusce pulvinar arcu consectetur felis convallis sagittis. Donec vitae interdum enim, et commodo orci. Vestibulum volutpat, metus fringilla hendrerit accumsan, erat lorem posuere lacus, eget rutrum elit orci nec odio.", "Mauris bibendum, enim sit amet pulvinar pulvinar, enim mi vehicula odio, sit amet porta nisi neque vitae dolor. Praesent augue arcu, interdum sed mi vel, imperdiet porta nunc. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis tristique at magna ac cursus. Phasellus lectus urna, semper id turpis sed, ornare finibus libero. Sed urna dui, auctor sit amet ultrices eget, dapibus eget libero.", "Quisque scelerisque condimentum odio non porta. Proin sed leo condimentum nibh eleifend mollis vel vitae magna. Donec suscipit semper lorem, eu molestie odio auctor sed."];
 
   // Cache the main "content" element, which will contain everything on the page
   const content = document.querySelector("#content");
@@ -16,6 +16,7 @@ export default function aboutUsPage() {
   let header = document.createElement("div");
   header.setAttribute("id", "header");
   header.classList.add("centered-flex");
+  header.classList.add("light-header-tabs");
   content.appendChild(header);
 
   // Create the "ul" element for the Site Navigation Menu
@@ -33,66 +34,39 @@ export default function aboutUsPage() {
     headerTabs.appendChild(li);
   }
 
-  /******** Midle content ***********/
+  /******** Top content ***********/
 
-  // Create main container for the middle content, and the two containers within
+  let topContent = document.createElement("div");
+  topContent.setAttribute("id", "top-content");
+  topContent.classList.add("centered-flex");
+  content.appendChild(topContent);
 
-  let middleContent = document.createElement("div");
-  middleContent.setAttribute("id", "middle-content");
-  content.appendChild(middleContent);
+  let textBoxLeft = document.createElement("div");
+  textBoxLeft.setAttribute("id", "text-box-left");
+  textBoxLeft.classList.add("textbox");
+  textBoxLeft.classList.add("centered-flex");
+  topContent.appendChild(textBoxLeft);
 
-  let middleTop = document.createElement("div");
-  middleTop.setAttribute("id", "middle-top");
-  middleTop.innerHTML = middleTextContent;
-  middleTop.style.textAlign = "center";
-  middleContent.appendChild(middleTop);
+  let textBoxRight = document.createElement("div");
+  textBoxRight.setAttribute("id", "text-box-right");
+  textBoxRight.classList.add("textbox");
+  textBoxRight.classList.add("centered-flex");
+  topContent.appendChild(textBoxRight);
 
-  let middleBottom = document.createElement("div");
-  middleBottom.setAttribute("id", "middle-bottom");
-  middleContent.appendChild(middleBottom);
-
-
-  // Add the "chef" image to the middle content
-
-  let chefImg = document.createElement("img");
-  chefImg.setAttribute("id", "chef-img");
-  chefImg.src = Chef;
-  middleBottom.appendChild(chefImg);
-
-  // Add the element containing the middle content "chef text" elements
-
-  let chefText = document.createElement("div");
-  chefText.setAttribute("id", "chef-text");
-  middleBottom.appendChild(chefText);
-
-  for (let i in chefTextContent) {
-    let text = document.createElement("div");
-    text.setAttribute("id", `text${parseInt(i) + 1}`);
-    text.innerHTML = chefTextContent[i];
-    chefText.appendChild(text);
+  for (let i in textBoxTitles) {
+    let titleDiv = document.createElement("div");
+    titleDiv.classList.add("title");
+    titleDiv.innerHTML = textBoxTitles[i];
+    let containingDiv = (i % 2 == 0) ? textBoxLeft : textBoxRight;
+    containingDiv.appendChild(titleDiv);
   }
 
-  chefText.firstChild.style.fontWeight = "800"
-
-  /******** Footer ***********/
-
-  let footer = document.createElement("div");
-  footer.setAttribute("id", "footer");
-  content.appendChild(footer);
-
-
-  let copyrightText = document.createElement("div");
-  let currentYear = new Date().getFullYear();
-  copyrightText.innerHTML = `Copyright © ${currentYear} dominik-kiss`;
-  footer.appendChild(copyrightText);
-
-  let gitHubLink = document.createElement("a");
-  gitHubLink.href = "https://github.com/dominik-kiss";
-  footer.appendChild(gitHubLink);
-
-  let gitHubLogo = document.createElement("i");
-  gitHubLogo.classList.add("fab");
-  gitHubLogo.classList.add("fa-github");
-  gitHubLink.appendChild(gitHubLogo);
+  for (let i in textBoxContent) {
+    let textContentDiv = document.createElement("div");
+    textContentDiv.classList.add("text-content");
+    textContentDiv.innerHTML = textBoxContent[i];
+    let containingDiv = (i % 2 == 0) ? textBoxLeft : textBoxRight;
+    containingDiv.appendChild(textContentDiv);
+  }
 
 }
