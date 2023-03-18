@@ -4,7 +4,7 @@ The main aim of the project was to build a fictional restaurant's website using 
 
 ## Live demo
 
-
+[Try it here](https://dominik-kiss.github.io/site-project/)
 
 ## Built With
 
