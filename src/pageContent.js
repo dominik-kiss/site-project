@@ -16,7 +16,7 @@ import restaurant4 from "./media/restaurant4.jpg";
 import addLogo from "./addLogo";
 
 
-export default function homePage() {
+export default function createHomePage() {
 
   const navigationOptions = ["Home", "About Us", "Menu", "Gallery", "Contact Us"];
   const middleTextContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a sem at ipsum consequat hendrerit quis at tortor. Duis nec dignissim ex.";
@@ -30,8 +30,9 @@ export default function homePage() {
   const phoneNumber = "056-985-4358";
   const emailAddress = "restaurant@kinghill.com";
   
-  // Cache the main "content" element, which will contain everything on the page
-  const content = document.querySelector("#content");
+  // Create the main "content" element, which will contain everything on the page
+  let content = createNode("div", document.body, "content", ["centered-flex"]);
+
 
   /******** Carousel ***********/
 
